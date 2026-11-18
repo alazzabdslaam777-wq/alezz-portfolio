@@ -245,15 +245,63 @@ section {
     margin-bottom: 1.5rem;
 }
 
-.video-frame {
+.video-poster-link {
     position: relative;
+    display: block;
     width: 100%;
-    max-width: 900px;
+    max-width: 850px;
     margin: 0 auto;
-    aspect-ratio: 16 / 9;
-    border-radius: 18px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.video-poster-link img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.video-poster-link:hover img {
+    transform: scale(1.03);
+}
+
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 41, 59, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #fff;
+    transition: background 0.3s ease;
+}
+
+.video-poster-link:hover .play-overlay {
+    background: rgba(30, 41, 59, 0.25);
+}
+
+.play-overlay i {
+    width: 75px;
+    height: 75px;
+    background: #ff0000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+}
+
+.play-overlay span {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 0.5rem 1.4rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .video-frame iframe {
