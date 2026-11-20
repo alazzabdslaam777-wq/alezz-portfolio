@@ -50,3 +50,27 @@ function openModal(card) {
 function closeModal() {
     document.getElementById('cert-modal').style.display = "none";
 }
+// 4. تشغيل الشريط المتحرك اللانهائي وتكبير التصاميم
+const designsTrack = document.getElementById('designs-track');
+if (designsTrack) {
+    // نسخ المحتوى تلقائياً لضمان استمرار الحركة بدون فراغ
+    designsTrack.innerHTML += designsTrack.innerHTML;
+}
+
+function openDesignModal(slide) {
+    const img = slide.querySelector('img');
+    const title = slide.querySelector('span').innerText;
+
+    if (!img.getAttribute('src')) {
+        alert("Please add the design image path in index.html first!");
+        return;
+    }
+
+    const modal = document.getElementById('cert-modal');
+    const modalImg = document.getElementById('modal-img');
+    const captionText = document.getElementById('modal-caption');
+
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    captionText.innerHTML = title;
+}

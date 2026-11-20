@@ -713,3 +713,70 @@ display: flex;
 font-size: 2.3rem;
 }
 }
+/* شريط التصاميم المتحرك (Infinite Marquee) */
+.designs-section {
+    overflow: hidden;
+}
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 1.5rem 0;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 1.8rem;
+    width: max-content;
+    animation: scrollDesigns 28s linear infinite;
+}
+
+/* إيقاف الحركة عند وضع الفأرة للمشاهدة */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes scrollDesigns {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.design-slide {
+    width: 280px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.design-slide:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--gold);
+}
+
+.design-slide img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    background-color: #EAE6DF;
+    display: block;
+}
+
+.design-slide span {
+    display: block;
+    padding: 0.9rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--primary);
+}
